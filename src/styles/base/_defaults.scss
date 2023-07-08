@@ -1,0 +1,15 @@
+@use '../utils/utils' as *;
+
+/* Baseline for default links */
+/* Ref: https://moderncss.dev/modern-css-for-dynamic-component-based-architecture/ */
+a:not([class]) {
+  /* Relatively sized thickness and offset */
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.15em;
+  color: $color-secondary;
+
+  &:hover {
+    color: $color-text;
+    transition: color 200ms ease-out;
+  }
+}
