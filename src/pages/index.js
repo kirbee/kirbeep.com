@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { graphql } from 'gatsby';
 import { HeadContent } from '../components/head/Head';
 import { Header } from '../components/header/Header';
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const posts = data.allContentfulPageBlogPost.nodes || [];
+
   return (
     <>
       <Header />
@@ -58,6 +61,12 @@ const IndexPage = () => {
           dignissim lobortis ex imperdiet a. Donec gravida augue et blandit
           rhoncus.
         </p>
+        {posts.map((post) => (
+          <div>
+            <h2>{post.title}</h2>
+            <p>{post.shortDescription?.shortDescription}</p>
+          </div>
+        ))}
       </main>
     </>
   );
@@ -71,3 +80,21 @@ export const Head = () => (
     <HeadContent />
   </>
 );
+
+export const IndexPageQuery = graphql`
+  {
+    allContentfulPageBlogPost {
+      nodes {
+        contentful_id
+        publishedDate(formatString: "MMMM DD, YYYY")
+        title
+        featuredImage {
+          gatsbyImageData
+        }
+        shortDescription {
+          shortDescription
+        }
+      }
+    }
+  }
+`;
