@@ -14,6 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "prettier --check .",
+    "lint:fix": "prettier . --write",
     "prepare": "husky install"
   },
   "dependencies": {

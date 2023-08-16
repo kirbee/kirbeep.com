@@ -1,0 +1,78 @@
+@use 'src/styles/utils/utils' as *;
+
+.header {
+  text-align: center;
+  padding: var(--spacing-sm);
+
+  box-shadow: 0 4px 3px -4px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+
+  .nav {
+    display: grid;
+    justify-content: center;
+
+    @media (min-width: $breakpoint-md) {
+      justify-content: left;
+      text-align: left;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      gap: var(--spacing-md);
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .heading {
+    text-decoration: none;
+    color: var(--color-text);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    :is(h1) {
+      font-size: var(--text-lg);
+      margin: 0;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: var(--text-xxl);
+      }
+    }
+  }
+
+  .links {
+    @include list-reset();
+
+    --color-links: var(--color-primary);
+
+    font-size: var(--text-md);
+    margin: 0;
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    text-transform: lowercase;
+    align-items: center;
+
+    @media (min-width: $breakpoint-md) {
+      justify-content: end;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      font-size: var(--text-lg);
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    :is(a) {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
