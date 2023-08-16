@@ -5,6 +5,7 @@
   --color-secondary: #{$color-purple};
   --color-primary: #{$color-blue};
   --color-links: #{$color-purple};
+  --color-white: #{$color-white};
   --spacing-xxs: #{$spacing-02};
   --spacing-xs: #{$spacing-04};
   --spacing-sm: #{$spacing-06};
@@ -12,4 +13,7 @@
   --spacing-lg: #{$spacing-10};
   --spacing-xl: #{$spacing-12};
   --spacing-xxl: #{$spacing-14};
+  @each $name, $value in $text-font-sizes {
+    --text-#{$name}: #{$value};
+  }
 }

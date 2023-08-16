@@ -1,18 +1,67 @@
+@use 'src/styles/utils/utils' as *;
+
 .header {
-  padding: var(--spacing-sm) var(--spacing-xs);
+  text-align: center;
+  padding: var(--spacing-sm);
   display: grid;
-  grid-template-columns: max-content max-content;
-  gap: var(--spacing-sm);
-  align-items: center;
-  box-shadow: 0 4px 7px -4px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+
+  box-shadow: 0 4px 3px -4px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+
+  @media (min-width: $breakpoint-md) {
+    justify-content: left;
+    text-align: left;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    gap: var(--spacing-md);
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
   .heading {
     color: var(--color-text);
+    font-size: var(--text-lg);
     margin: 0;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: var(--text-xxl);
+    }
   }
 
-  .subheading {
-    color: var(--color-secondary);
+  .links {
+    @include list-reset();
+
+    --color-links: var(--color-primary);
+
+    font-size: var(--text-md);
     margin: 0;
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    text-transform: lowercase;
+    align-items: center;
+
+    @media (min-width: $breakpoint-md) {
+      justify-content: end;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      font-size: var(--text-lg);
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    :is(a) {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

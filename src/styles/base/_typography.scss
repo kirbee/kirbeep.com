@@ -1,7 +1,15 @@
+@use '../utils/utils' as *;
+
+body {
+  font-family: 'Space Mono', monospace;
+}
+
 :is(h1, h2, h3, h4, h5, h6) {
   font-family: 'Patua One', Georgia, sans-serif;
 }
 
-p {
-  font-family: 'Space Mono', monospace;
+@each $heading, $size in $display-font-sizes {
+  #{$heading} {
+    font-size: $size;
+  }
 }
